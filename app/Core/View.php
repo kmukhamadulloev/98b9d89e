@@ -2,7 +2,8 @@
 
 namespace App\Core;
 
-class View {
+class View
+{
 
     public $route;
     public $layout = 'default';

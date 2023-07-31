@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
-class Mailer {
+class Mailer
+{
     
 }

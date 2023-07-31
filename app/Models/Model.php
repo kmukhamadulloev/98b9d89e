@@ -2,7 +2,8 @@
 
 namespace App\Model;
 
-abstract class Model {
+abstract class Model
+{
     protected int $id;
     protected string $table;
     protected bool $timestamps;

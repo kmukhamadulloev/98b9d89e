@@ -4,7 +4,8 @@ namespace App\Core;
 
 use App\Core\View;
 
-class Router {
+class Router
+{
     protected $routes = [];
     protected $params = [];
 
