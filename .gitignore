@@ -1,3 +1,5 @@
-storage
+docker/nginx/cert/*
+storage/*
 .env
 config.php
+project/resources/logs/*
