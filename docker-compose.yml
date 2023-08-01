@@ -1,0 +1,49 @@
+version: '3.9'
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:1.23.4
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/cert:/etc/nginx/ssl
+      - ./project:/var/www/alif
+    depends_on:
+      - php81
+    networks:
+      - app
+  
+  php81:
+    container_name: php81
+    image: php:8.1-fpm
+    volumes:
+      - ./project:/var/www/alif
+    networks:
+      - app
+  
+  mysql:
+    container_name: mysql
+    image: mysql:5.7.29
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - ./storage:/var/lib/mysql
+    networks:
+      - app
+
+  adminer:
+    container_name: adminer
+    image: adminer:latest
+    ports:
+      - 8080:8080
+    networks:
+      - app
+    depends_on:
+      - mysql
+
+networks:
+  app:
+    driver: bridge
