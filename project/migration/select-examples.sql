@@ -1,0 +1,1 @@
+select r.client_id, r.room_id, c.first_name, c.last_name, c.middle_name, c.email, c.phone, m.title, m.room_number, r.reserved_from, r.reserved_till from requests r inner join clients c on c.id = r.client_id inner join rooms m on m.id = r.room_id where r.room_id = 1 and r.reserved_from between '2023-08-10 00:00:00' and '2023-08-11 00:00:00';

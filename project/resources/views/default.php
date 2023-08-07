@@ -9,9 +9,10 @@
 </head>
 <body>
 
-    <nav class="navbar fixed-top navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">Simple MVC</a>
+            <a href="/create" class="btn btn-info">Reserve</a>
         </div>
     </nav>
     
@@ -20,7 +21,8 @@
     <footer class="container">
         <div class="row">
             <div class="col-md-12 py-3 text-center">
-                <p>Тестовое задание</p>
+                <hr/>
+                <p>Alif Test Task</p>
             </div>
         </div>
     </footer>

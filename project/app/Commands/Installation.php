@@ -9,7 +9,8 @@ class Installation
     private static string $database = '../migration/database.sql';
     private static string $data = '../migration/insert_test_data.sql';
 
-    public static function checkIfTableExists() : bool {
+    public static function checkIfTableExists() : bool
+    {
         $pdo = new Database;
 
         $clients = "SELECT EXISTS(SELECT 1 FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'alif_test' AND TABLE_NAME = 'clients') AS table_exists;";
@@ -23,7 +24,8 @@ class Installation
         return ($clientsExists && $roomsExists && $requestsExists);
     }
 
-    public static function installFiles() : bool {
+    public static function installFiles() : bool
+    {
         if (self::checkIfTableExists()) return false;
 
         $pdo = new Database;

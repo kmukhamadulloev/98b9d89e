@@ -3,3 +3,5 @@ storage/*
 .env
 config.php
 project/resources/logs/*
+vendor
+composer.lock

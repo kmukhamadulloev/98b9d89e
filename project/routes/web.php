@@ -12,5 +12,9 @@ return [
     'create' => [
         'controller' => 'request',
         'action' => 'create'
+    ],
+    'install' => [
+        'controller' => 'request',
+        'action' => 'install'
     ]
 ];

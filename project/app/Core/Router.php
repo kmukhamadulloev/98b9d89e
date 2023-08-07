@@ -6,17 +6,19 @@ use App\Core\View;
 
 class Router
 {
-    protected $routes = [];
-    protected $params = [];
+    protected array $routes = [];
+    protected array $params = [];
 
-    public function __construct() {
-        $arr = require 'resources/routes.php';
+    public function __construct()
+    {
+        $arr = require '../routes/web.php';
         foreach ($arr as $key => $val) {
             $this->add($key, $val);
         }
     }
 
-    public function add($route, $params) {
+    public function add($route, $params)
+    {
         $route = preg_replace('/{([a-z]+):([^\}]+)}/', '(?P<\1>\2)', $route);
         $route = '#^'.$route.'$#';
         $this->routes[$route] = $params;

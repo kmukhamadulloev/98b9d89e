@@ -7,7 +7,7 @@ session_start();
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use App\Core\Router;
+use App\Commands\Informer;
 
-$router = new Router;
-$router->run();
+$informer = new Informer;
+$informer->executeTheCommand();

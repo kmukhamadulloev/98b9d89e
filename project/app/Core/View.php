@@ -5,33 +5,38 @@ namespace App\Core;
 class View
 {
 
-    public $route;
-    public $layout = 'default';
+    public array $route;
+    public string $layout = 'default';
+    private string $viewPath = '../resources/views/';
 
-    public function __construct($route) {
+    public function __construct(array $route = [])
+    {
         $this->route = $route;
     }
 
-    public function render($path = 'error/404', $items = [], $errors = []) {
+    public function render(string $path = 'error/404', array $items = [], array $errors = []) : void
+    {
 
-        $path = 'resources/views/'.$path.'.php';
+        $path = $this->viewPath . $path . '.php';
 
         if (file_exists($path)) {
             ob_start();
             require $path;
             $content = ob_get_clean();
-            require 'resources/views/'.$this->layout.'.php';
+            require $this->viewPath . $this->layout . '.php';
         }
     }
 
-    public function redirect($url) {
+    public function redirect(string $url) : void
+    {
         header("Location: {$url}");
         exit;
     }
 
-    public static function errorCode($code) {
+    public static function errorCode(string $code) : void
+    {
         http_response_code($code);
-        $path = 'resources/views/error/'.$code.'.php';
+        $path = '../resources/views/error/'.$code.'.php';
         if (file_exists($path)) {
             require $path;
         }
